@@ -16,3 +16,18 @@ class Solution:
             cur = cur.next
         cur.next = l1 or l2
         return head.next
+ """
+Notes:
+1. Use given Nodes, do not create new ones.
+
+2. To create a special linked list using existing nodes:
+Use two pointers to an empty node:
+1 for iteration & adding new nodes
+2 for returning the head of the linked list (return head.next)
+
+3. Worst case complexity is O(n+m), best case is O(min(n,m)):
+After one of the lists ends use curr.next = l1 or l2 (eliminates None)
+
+4. If there is a priority for one of the lists for equal values, 
+Fix line 10 with respect to it.
+ """
