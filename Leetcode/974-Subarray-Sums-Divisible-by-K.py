@@ -1,11 +1,12 @@
 class Solution:
     def subarraysDivByK(self, A: List[int], K: int) -> int:
+        if not A or len(A) == 0:
+            return 0
         mods = dict()
-        prefix_sum = [0]
-        for i in A:
-            prefix_sum.append((prefix_sum[-1] + i) % K)
+        prefix_sum = [A[0] % K]
+        for i in range(1, len(A)):
+            prefix_sum.append((prefix_sum[-1] + A[i]) % K)
 
-        prefix_sum.pop(0)
         mods[0] = 1
         result = 0
         for i in prefix_sum:
