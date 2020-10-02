@@ -7,7 +7,7 @@ class Node:
 
 def iterativeInorderTraverse(root):
     if root is None:
-        return
+        return ""
 
     stack = []
     current = root
@@ -26,7 +26,7 @@ def iterativeInorderTraverse(root):
 
 def recursiveInorderTraversal(root):
     if root is None:
-        return
+        return ""
 
     recursiveInorderTraversal(root.left)
     print(root.val, end=" ")
