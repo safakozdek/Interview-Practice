@@ -34,6 +34,66 @@ def recursiveInorderTraversal(root):
     return ""
 
 
+def iterativePreorderTraverse(root):
+    if root is None:
+        return ""
+
+    stack = [root]
+
+    while stack:
+        current = stack.pop()
+        print(current.val, end=" ")
+        if current.right:
+            stack.append(current.right)
+        if current.left:
+            stack.append(current.left)
+
+    return ""
+
+
+def recursivePreorderTraversal(root):
+    if root is None:
+        return ""
+
+    print(root.val, end=" ")
+    recursivePreorderTraversal(root.left)
+    recursivePreorderTraversal(root.right)
+    return ""
+
+
+def iterativePostorderTraverse(root):
+    if root is None:
+        return ""
+
+    result_stack = []
+    iteration_stack = [root]
+
+    while iteration_stack:
+        current = iteration_stack.pop()
+        result_stack.append(current)
+        if current.left:
+            iteration_stack.append(current.left)
+        if current.right:
+            iteration_stack.append(current.right)
+
+    while result_stack:
+        current = result_stack.pop()
+        print(current.val, end=" ")
+
+    return ""
+
+
+def recursivePostorderTraversal(root):
+    if root is None:
+        return ""
+
+    recursivePostorderTraversal(root.left)
+    recursivePostorderTraversal(root.right)
+    print(root.val, end=" ")
+
+    return ""
+
+
 if __name__ == "__main__":
     root = Node(1)
     root.left = Node(2)
@@ -44,3 +104,7 @@ if __name__ == "__main__":
     root.right.right = Node(7)
     print(iterativeInorderTraverse(root))
     print(recursiveInorderTraversal(root))
+    print(iterativePreorderTraverse(root))
+    print(recursivePreorderTraversal(root))
+    print(iterativePostorderTraverse(root))
+    print(recursivePostorderTraversal(root))
