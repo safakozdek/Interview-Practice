@@ -12,9 +12,4 @@ class Solution:
         for i in range(k, len(points)):
             heappushpop(heap, points[i])
 
-        result = []
-
-        for i in range(k):
-            result.append(heappop(heap)[1])
-
-        return result
+        return [x[1] for x in heap]
